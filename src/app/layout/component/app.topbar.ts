@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppConfigurator } from './app.configurator';
@@ -33,7 +33,7 @@ import { LayoutService } from '../service/layout.service';
                         />
                     </g>
                 </svg>
-                <span>SAKAI</span>
+                <span>MULETECH</span>
             </a>
         </div>
 
@@ -65,16 +65,12 @@ import { LayoutService } from '../service/layout.service';
             <div class="layout-topbar-menu hidden lg:block">
                 <div class="layout-topbar-menu-content">
                     <button type="button" class="layout-topbar-action">
-                        <i class="pi pi-calendar"></i>
-                        <span>Calendar</span>
-                    </button>
-                    <button type="button" class="layout-topbar-action">
-                        <i class="pi pi-inbox"></i>
-                        <span>Messages</span>
-                    </button>
-                    <button type="button" class="layout-topbar-action">
                         <i class="pi pi-user"></i>
                         <span>Profile</span>
+                    </button>
+                    <button (click)="signOut()" type="button" class="layout-topbar-action">
+                        <i class="pi pi-sign-out"></i>
+                        <span>Sign Out</span>
                     </button>
                 </div>
             </div>
@@ -83,10 +79,17 @@ import { LayoutService } from '../service/layout.service';
 })
 export class AppTopbar {
     items!: MenuItem[];
-
+    router = inject(Router);
     constructor(public layoutService: LayoutService) {}
 
     toggleDarkMode() {
         this.layoutService.layoutConfig.update((state) => ({ ...state, darkTheme: !state.darkTheme }));
+    }
+    signOut() {
+        this.router.navigate(['/auth/login']);
+        //    const request = { UserId: value } as UserLogoutRequest;
+        //             this.authService.logout(request).subscribe(() => {
+        //                 this.router.navigate(['/auth/login']);
+        //             });
     }
 }

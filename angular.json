@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "sakai-ng": {
+        "mule-tech": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                        "outputPath": "dist/sakai-ng",
+                        "outputPath": "dist/mule-tech",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
                         "polyfills": [
@@ -26,6 +26,8 @@
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
+                             "src/assets",
+                            "src/favicon.ico",
                             {
                                 "glob": "**/*",
                                 "input": "public"
@@ -52,10 +54,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "buildTarget": "sakai-ng:build:production"
+                            "buildTarget": "mule-tech:build:production"
                         },
                         "development": {
-                            "buildTarget": "sakai-ng:build:development"
+                            "buildTarget": "mule-tech:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
