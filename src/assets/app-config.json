@@ -2,5 +2,5 @@
   "idpBase": "https://localhost:7242",
   "clientId": "muul-web",
   "apiBase": "https://localhost:5003",
-  "scope": "openid profile email"
+  "scope": "openid profile email muul.api.read muul.api.write"
 }
