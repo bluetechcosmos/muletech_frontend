@@ -60,7 +60,14 @@
                             "buildTarget": "mule-tech:build:development"
                         }
                     },
-                    "defaultConfiguration": "development"
+                    "defaultConfiguration": "development",
+                    "options": {
+                        "ssl": true,
+                        "sslCert": "certs/localhost.pem",
+                        "sslKey": "certs/localhost-key.pem",
+                        "host": "localhost",
+                        "port": 4200
+                    }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n"

@@ -1,0 +1,54 @@
+.login-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--surface-50, #f5f6f8);
+  padding: 1rem;
+}
+
+.login-card {
+  width: min(32rem, 100%);
+  box-shadow: var(--p-shadow-3, 0 2px 8px rgba(0,0,0,.08));
+  border-radius: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.brand .pi {
+  font-size: 1.25rem;
+}
+
+.brand-text {
+  font-weight: 600;
+}
+
+.title { margin: .25rem 0 0.5rem; }
+
+.muted {
+  color: var(--text-color-secondary, #6b7280);
+  margin: 0 0 1rem;
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.mt { margin-top: 1rem; }
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: #b45309; /* amber-700 */
+}
+
+.sm-spinner {
+  width: 2rem;
+  height: 2rem;
+}

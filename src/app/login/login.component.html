@@ -1,0 +1,37 @@
+<div class="login-wrap">
+  <p-card styleClass="login-card">
+    <ng-template pTemplate="header">
+      <div class="brand">
+        <i class="pi pi-shield text-primary"></i>
+        <span class="brand-text">Muul Identity</span>
+      </div>
+    </ng-template>
+
+    <h2 class="title">Sign in</h2>
+    <p class="muted">You’ll be redirected to the Identity login.</p>
+
+    <!-- Redirecting -->
+    <div class="inline" *ngIf="loading() && !error()">
+      <p-progressSpinner styleClass="sm-spinner"></p-progressSpinner>
+      <span>Redirecting…</span>
+    </div>
+
+    <!-- Error state -->
+    <div class="error" *ngIf="error()">
+      <i class="pi pi-exclamation-triangle"></i>
+      <span>{{ error() }}</span>
+    </div>
+    <div class="mt" *ngIf="error()">
+      <button pButton label="Try again" icon="pi pi-arrow-right" (click)="start()"></button>
+    </div>
+
+    <!-- Fallback: brief visible before auto-redirect -->
+    <div class="mt" *ngIf="!loading() && !error()">
+      <button pButton label="Continue" icon="pi pi-arrow-right" (click)="start()"></button>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <small class="muted">By continuing you’ll be taken to the secure IdP sign-in.</small>
+    </ng-template>
+  </p-card>
+</div>
